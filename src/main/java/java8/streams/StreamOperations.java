@@ -4,16 +4,22 @@ import java8.common.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamOperations {
     public static void main(String[] args) {
         List<Employee> employeeList = generateEmployeeData();
         System.out.println(employeeList);
+        Map<String, Long> noOfMaleAndFemaleEmployees=
+                employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+
+        System.out.println("noOfMaleAndFemaleEmployees:"+noOfMaleAndFemaleEmployees);
     }
 
     public static List<Employee> generateEmployeeData()
     {
-        List<Employee> employeeList = new ArrayList<Employee>();
+        List<Employee> employeeList = new ArrayList<>();
 
         employeeList.add(new Employee(1, "Emp1", 32, "Female", "HR", 2011, 25000.0));
         employeeList.add(new Employee(2, "Emp2", 25, "Male", "Sales And Marketing", 2015, 13500.0));
