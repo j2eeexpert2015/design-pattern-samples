@@ -7,10 +7,11 @@ import java.util.List;
 
 public class StreamOperations {
     public static void main(String[] args) {
-        System.out.println();
+        List<Employee> employeeList = generateEmployeeData();
+        System.out.println(employeeList);
     }
 
-    public static List<Employee> generateData()
+    public static List<Employee> generateEmployeeData()
     {
         List<Employee> employeeList = new ArrayList<Employee>();
 
